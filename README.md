@@ -1,7 +1,7 @@
-CaesarCypher
+CaesarCipher
 ============
 
-CSCI 469 Project 1 (Fall 13) - Caesar Cypher
+CSCI 469 Project 1 (Fall 13) - Caesar Cipher
 
 How to Run
 ----------
