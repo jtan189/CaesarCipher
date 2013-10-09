@@ -1,19 +1,26 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * CSCI 469
+ * Project #1
+ * Tan, Josh
+ * 10/08/13
  */
+
 package caesarcipher;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- *
- * @author jdot
+ * The GUI frame used to demonstrate the cipher. Allows the user to specify
+ * the shift size and plaintext, and provides the resulting ciphertext. The
+ * ciphertext is shown immediately as the user makes changes the plaintext or
+ * shift setting.
+ * 
+ * @author Josh Tan
  */
 public class CipherFrame extends javax.swing.JFrame {
 
-    private Cipher caesarCipher;
+    private Cipher caesarCipher; // cipher used for encryption
 
     /**
      * Creates new form CipherFrame
@@ -21,6 +28,8 @@ public class CipherFrame extends javax.swing.JFrame {
     public CipherFrame() {
         initComponents();
 
+        // whenever the user removes, inserts, and changes the plaintext,
+        // recompute and display the corresponding ciphertext
         plainArea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void removeUpdate(DocumentEvent e) {
@@ -38,6 +47,7 @@ public class CipherFrame extends javax.swing.JFrame {
             }
         });
 
+        // initialize the cipher with the appropriate shift setting
         caesarCipher = new Cipher((Integer) shiftSpinner.getValue());
     }
 
