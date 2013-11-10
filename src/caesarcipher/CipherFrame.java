@@ -33,17 +33,17 @@ public class CipherFrame extends javax.swing.JFrame {
         plainArea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void removeUpdate(DocumentEvent e) {
-                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
+//                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
             }
 
             @Override
             public void insertUpdate(DocumentEvent e) {
-                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
+//                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
             }
 
             @Override
             public void changedUpdate(DocumentEvent arg0) {
-                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
+//                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
             }
         });
 
@@ -63,13 +63,29 @@ public class CipherFrame extends javax.swing.JFrame {
         caesarPanel = new javax.swing.JPanel();
         shiftLabel = new javax.swing.JLabel();
         shiftSpinner = new javax.swing.JSpinner();
+        caesarTitle = new javax.swing.JLabel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         cipherPanel = new javax.swing.JPanel();
         cipherScrollPane = new javax.swing.JScrollPane();
         cipherArea = new javax.swing.JTextArea();
         plainPanel = new javax.swing.JPanel();
         plainScrollPane = new javax.swing.JScrollPane();
         plainArea = new javax.swing.JTextArea();
-        caesarTitle = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        cipherPanel1 = new javax.swing.JPanel();
+        cipherScrollPane1 = new javax.swing.JScrollPane();
+        cipherArea1 = new javax.swing.JTextArea();
+        plainPanel3 = new javax.swing.JPanel();
+        plainScrollPane3 = new javax.swing.JScrollPane();
+        plainArea3 = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("caesarFrame"); // NOI18N
@@ -82,6 +98,9 @@ public class CipherFrame extends javax.swing.JFrame {
                 spinUpdater(evt);
             }
         });
+
+        caesarTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        caesarTitle.setText("A Simple Caesar Cipher");
 
         cipherPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
 
@@ -97,14 +116,14 @@ public class CipherFrame extends javax.swing.JFrame {
             cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cipherPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cipherScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                .addComponent(cipherScrollPane)
                 .addContainerGap())
         );
         cipherPanelLayout.setVerticalGroup(
             cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cipherPanelLayout.createSequentialGroup()
+            .addGroup(cipherPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cipherScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addComponent(cipherScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -122,81 +141,262 @@ public class CipherFrame extends javax.swing.JFrame {
             plainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(plainScrollPane)
+                .addComponent(plainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                 .addContainerGap())
         );
         plainPanelLayout.setVerticalGroup(
             plainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(plainScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        caesarTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        caesarTitle.setText("A Simple Caesar Cipher");
+        jButton1.setText("Encrypt");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Clear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(plainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cipherPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(plainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cipherPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(14, 14, 14))
+        );
+
+        jTabbedPane2.addTab("Encryption", jPanel1);
+
+        cipherPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
+
+        cipherArea1.setColumns(20);
+        cipherArea1.setLineWrap(true);
+        cipherArea1.setRows(5);
+        cipherScrollPane1.setViewportView(cipherArea1);
+
+        javax.swing.GroupLayout cipherPanel1Layout = new javax.swing.GroupLayout(cipherPanel1);
+        cipherPanel1.setLayout(cipherPanel1Layout);
+        cipherPanel1Layout.setHorizontalGroup(
+            cipherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cipherPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        cipherPanel1Layout.setVerticalGroup(
+            cipherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cipherPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        plainPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
+        plainPanel3.setPreferredSize(new java.awt.Dimension(472, 158));
+
+        plainArea3.setEditable(false);
+        plainArea3.setColumns(20);
+        plainArea3.setLineWrap(true);
+        plainArea3.setRows(5);
+        plainArea3.setName(""); // NOI18N
+        plainScrollPane3.setViewportView(plainArea3);
+
+        javax.swing.GroupLayout plainPanel3Layout = new javax.swing.GroupLayout(plainPanel3);
+        plainPanel3.setLayout(plainPanel3Layout);
+        plainPanel3Layout.setHorizontalGroup(
+            plainPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(plainPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(plainScrollPane3)
+                .addContainerGap())
+        );
+        plainPanel3Layout.setVerticalGroup(
+            plainPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plainPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(plainScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jButton3.setText("Clear");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Decrypt");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cipherPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(plainPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cipherPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(plainPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(115, 115, 115))
+        );
+
+        jTabbedPane2.addTab("Decryption", jPanel2);
 
         javax.swing.GroupLayout caesarPanelLayout = new javax.swing.GroupLayout(caesarPanel);
         caesarPanel.setLayout(caesarPanelLayout);
         caesarPanelLayout.setHorizontalGroup(
             caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(caesarPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caesarTitle)
                     .addGroup(caesarPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cipherPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(plainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(caesarPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caesarTitle)
-                            .addGroup(caesarPanelLayout.createSequentialGroup()
-                                .addComponent(shiftLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(shiftLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         caesarPanelLayout.setVerticalGroup(
             caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(caesarPanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(caesarTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(shiftLabel)
                     .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(plainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cipherPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Exit");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(caesarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(caesarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(caesarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(caesarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void spinUpdater(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinUpdater
-        caesarCipher.setShift((Integer) shiftSpinner.getValue());
-        cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
+//        caesarCipher.setShift((Integer) shiftSpinner.getValue());
+//        cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
     }//GEN-LAST:event_spinUpdater
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int shift = (Integer) shiftSpinner.getValue();
+        String plainText = plainArea.getText();
+        caesarCipher.setShift(shift);
+        cipherArea.setText(caesarCipher.encipher(plainText));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        plainArea.setText("");
+        cipherArea.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int shift = (Integer) shiftSpinner.getValue();
+        String cipherText = cipherArea1.getText();
+        caesarCipher.setShift(shift);
+        plainArea3.setText(caesarCipher.decipher(cipherText));
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        plainArea3.setText("");
+        cipherArea1.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,11 +440,33 @@ public class CipherFrame extends javax.swing.JFrame {
     private javax.swing.JPanel caesarPanel;
     private javax.swing.JLabel caesarTitle;
     private javax.swing.JTextArea cipherArea;
+    private javax.swing.JTextArea cipherArea1;
     private javax.swing.JPanel cipherPanel;
+    private javax.swing.JPanel cipherPanel1;
     private javax.swing.JScrollPane cipherScrollPane;
+    private javax.swing.JScrollPane cipherScrollPane1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea plainArea;
+    private javax.swing.JTextArea plainArea1;
+    private javax.swing.JTextArea plainArea2;
+    private javax.swing.JTextArea plainArea3;
     private javax.swing.JPanel plainPanel;
+    private javax.swing.JPanel plainPanel1;
+    private javax.swing.JPanel plainPanel2;
+    private javax.swing.JPanel plainPanel3;
     private javax.swing.JScrollPane plainScrollPane;
+    private javax.swing.JScrollPane plainScrollPane1;
+    private javax.swing.JScrollPane plainScrollPane2;
+    private javax.swing.JScrollPane plainScrollPane3;
     private javax.swing.JLabel shiftLabel;
     private javax.swing.JSpinner shiftSpinner;
     // End of variables declaration//GEN-END:variables
