@@ -4,18 +4,17 @@
  * Tan, Josh
  * 10/08/13
  */
-
 package caesarcipher;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- * The GUI frame used to demonstrate the cipher. Allows the user to specify
- * the shift size and plaintext, and provides the resulting ciphertext. The
+ * The GUI frame used to demonstrate the cipher. Allows the user to specify the
+ * shift size and plaintext, and provides the resulting ciphertext. The
  * ciphertext is shown immediately as the user makes changes the plaintext or
  * shift setting.
- * 
+ *
  * @author Josh Tan
  */
 public class CipherFrame extends javax.swing.JFrame {
@@ -92,7 +91,7 @@ public class CipherFrame extends javax.swing.JFrame {
 
         shiftLabel.setText("Cipher Shift:");
 
-        shiftSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 25, 1));
+        shiftSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 127, 1));
         shiftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinUpdater(evt);
@@ -100,7 +99,10 @@ public class CipherFrame extends javax.swing.JFrame {
         });
 
         caesarTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        caesarTitle.setText("A Simple Caesar Cipher");
+        caesarTitle.setText("A Slightly More Complex Caesar Cipher");
+
+        jTabbedPane2.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("TabbedPane.selected"), 1, true));
+        jTabbedPane2.setPreferredSize(new java.awt.Dimension(501, 507));
 
         cipherPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
 
@@ -123,7 +125,7 @@ public class CipherFrame extends javax.swing.JFrame {
             cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cipherPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cipherScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addComponent(cipherScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -141,7 +143,7 @@ public class CipherFrame extends javax.swing.JFrame {
             plainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(plainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addComponent(plainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                 .addContainerGap())
         );
         plainPanelLayout.setVerticalGroup(
@@ -188,8 +190,8 @@ public class CipherFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(plainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cipherPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cipherPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -212,14 +214,14 @@ public class CipherFrame extends javax.swing.JFrame {
             cipherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cipherPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                 .addContainerGap())
         );
         cipherPanel1Layout.setVerticalGroup(
             cipherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cipherPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -270,16 +272,17 @@ public class CipherFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cipherPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(plainPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cipherPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(plainPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,10 +291,10 @@ public class CipherFrame extends javax.swing.JFrame {
                 .addComponent(cipherPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(plainPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton3))
                 .addGap(115, 115, 115))
         );
 
@@ -304,13 +307,13 @@ public class CipherFrame extends javax.swing.JFrame {
             .addGroup(caesarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(caesarTitle)
                     .addGroup(caesarPanelLayout.createSequentialGroup()
                         .addComponent(shiftLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         caesarPanelLayout.setVerticalGroup(
             caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,8 +325,8 @@ public class CipherFrame extends javax.swing.JFrame {
                     .addComponent(shiftLabel)
                     .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 436, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jMenu1.setText("File");
@@ -344,17 +347,17 @@ public class CipherFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(caesarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(caesarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -375,7 +378,7 @@ public class CipherFrame extends javax.swing.JFrame {
         int shift = (Integer) shiftSpinner.getValue();
         String plainText = plainArea.getText();
         caesarCipher.setShift(shift);
-        cipherArea.setText(caesarCipher.encipher(plainText));
+        cipherArea.setText(caesarCipher.encipher(plainText));        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -389,7 +392,7 @@ public class CipherFrame extends javax.swing.JFrame {
         int shift = (Integer) shiftSpinner.getValue();
         String cipherText = cipherArea1.getText();
         caesarCipher.setShift(shift);
-        plainArea3.setText(caesarCipher.decipher(cipherText));
+        plainArea3.setText(caesarCipher.decipher(cipherText));        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -410,6 +413,7 @@ public class CipherFrame extends javax.swing.JFrame {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
+//                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -456,16 +460,10 @@ public class CipherFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea plainArea;
-    private javax.swing.JTextArea plainArea1;
-    private javax.swing.JTextArea plainArea2;
     private javax.swing.JTextArea plainArea3;
     private javax.swing.JPanel plainPanel;
-    private javax.swing.JPanel plainPanel1;
-    private javax.swing.JPanel plainPanel2;
     private javax.swing.JPanel plainPanel3;
     private javax.swing.JScrollPane plainScrollPane;
-    private javax.swing.JScrollPane plainScrollPane1;
-    private javax.swing.JScrollPane plainScrollPane2;
     private javax.swing.JScrollPane plainScrollPane3;
     private javax.swing.JLabel shiftLabel;
     private javax.swing.JSpinner shiftSpinner;
