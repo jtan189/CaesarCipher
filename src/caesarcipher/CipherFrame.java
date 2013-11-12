@@ -110,6 +110,7 @@ public class CipherFrame extends javax.swing.JFrame {
         cipherArea.setColumns(20);
         cipherArea.setLineWrap(true);
         cipherArea.setRows(5);
+        cipherArea.setWrapStyleWord(true);
         cipherScrollPane.setViewportView(cipherArea);
 
         javax.swing.GroupLayout cipherPanelLayout = new javax.swing.GroupLayout(cipherPanel);
@@ -134,6 +135,7 @@ public class CipherFrame extends javax.swing.JFrame {
         plainArea.setColumns(20);
         plainArea.setLineWrap(true);
         plainArea.setRows(5);
+        plainArea.setWrapStyleWord(true);
         plainArea.setName(""); // NOI18N
         plainScrollPane.setViewportView(plainArea);
 
@@ -206,6 +208,7 @@ public class CipherFrame extends javax.swing.JFrame {
         cipherArea1.setColumns(20);
         cipherArea1.setLineWrap(true);
         cipherArea1.setRows(5);
+        cipherArea1.setWrapStyleWord(true);
         cipherScrollPane1.setViewportView(cipherArea1);
 
         javax.swing.GroupLayout cipherPanel1Layout = new javax.swing.GroupLayout(cipherPanel1);
@@ -232,6 +235,7 @@ public class CipherFrame extends javax.swing.JFrame {
         plainArea3.setColumns(20);
         plainArea3.setLineWrap(true);
         plainArea3.setRows(5);
+        plainArea3.setWrapStyleWord(true);
         plainArea3.setName(""); // NOI18N
         plainScrollPane3.setViewportView(plainArea3);
 
