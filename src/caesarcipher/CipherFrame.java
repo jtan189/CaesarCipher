@@ -29,7 +29,7 @@ public class CipherFrame extends javax.swing.JFrame {
 
         // whenever the user removes, inserts, and changes the plaintext,
         // recompute and display the corresponding ciphertext
-        plainArea.getDocument().addDocumentListener(new DocumentListener() {
+        encryptPlainArea.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void removeUpdate(DocumentEvent e) {
 //                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
@@ -59,35 +59,37 @@ public class CipherFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        caesarPanel = new javax.swing.JPanel();
+        cipherPanel = new javax.swing.JPanel();
         shiftLabel = new javax.swing.JLabel();
         shiftSpinner = new javax.swing.JSpinner();
-        caesarTitle = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        cipherPanel = new javax.swing.JPanel();
-        cipherScrollPane = new javax.swing.JScrollPane();
-        cipherArea = new javax.swing.JTextArea();
-        plainPanel = new javax.swing.JPanel();
-        plainScrollPane = new javax.swing.JScrollPane();
-        plainArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        cipherPanel1 = new javax.swing.JPanel();
-        cipherScrollPane1 = new javax.swing.JScrollPane();
-        cipherArea1 = new javax.swing.JTextArea();
-        plainPanel3 = new javax.swing.JPanel();
-        plainScrollPane3 = new javax.swing.JScrollPane();
-        plainArea3 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        cipherTitle = new javax.swing.JLabel();
+        cipherTabbedPane = new javax.swing.JTabbedPane();
+        encryptPanel = new javax.swing.JPanel();
+        encryptCipherPanel = new javax.swing.JPanel();
+        encryptCipherScrollPane = new javax.swing.JScrollPane();
+        encryptCipherArea = new javax.swing.JTextArea();
+        encryptPlainPanel = new javax.swing.JPanel();
+        encryptPlainScrollPane = new javax.swing.JScrollPane();
+        encryptPlainArea = new javax.swing.JTextArea();
+        encryptEncryptButton = new javax.swing.JButton();
+        encryptClearButton = new javax.swing.JButton();
+        decryptPanel = new javax.swing.JPanel();
+        decryptCipherPanel = new javax.swing.JPanel();
+        decryptCipherScrollPane = new javax.swing.JScrollPane();
+        decryptCipherArea = new javax.swing.JTextArea();
+        decryptPlainPanel = new javax.swing.JPanel();
+        decryptPlainScrollPane = new javax.swing.JScrollPane();
+        decryptPlainArea = new javax.swing.JTextArea();
+        decryptClearButton = new javax.swing.JButton();
+        decryptDecryptButton = new javax.swing.JButton();
+        cipherMenuBar = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("A Simple Caesar Cipher");
         setName("caesarFrame"); // NOI18N
+        setResizable(false);
 
         shiftLabel.setText("Cipher Shift:");
 
@@ -98,157 +100,157 @@ public class CipherFrame extends javax.swing.JFrame {
             }
         });
 
-        caesarTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        caesarTitle.setText("A Simple Caesar Cipher");
+        cipherTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cipherTitle.setText("A Simple Caesar Cipher");
 
-        jTabbedPane2.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("TabbedPane.selected"), 1, true));
-        jTabbedPane2.setPreferredSize(new java.awt.Dimension(501, 507));
+        cipherTabbedPane.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("TabbedPane.selected"), 1, true));
+        cipherTabbedPane.setPreferredSize(new java.awt.Dimension(501, 507));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        encryptPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cipherPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
-        cipherPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        encryptCipherPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
+        encryptCipherPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cipherArea.setEditable(false);
-        cipherArea.setColumns(20);
-        cipherArea.setLineWrap(true);
-        cipherArea.setRows(5);
-        cipherArea.setWrapStyleWord(true);
-        cipherScrollPane.setViewportView(cipherArea);
+        encryptCipherArea.setEditable(false);
+        encryptCipherArea.setColumns(20);
+        encryptCipherArea.setLineWrap(true);
+        encryptCipherArea.setRows(5);
+        encryptCipherArea.setWrapStyleWord(true);
+        encryptCipherScrollPane.setViewportView(encryptCipherArea);
 
-        cipherPanel.add(cipherScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+        encryptCipherPanel.add(encryptCipherScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
 
-        jPanel1.add(cipherPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 470, 160));
+        encryptPanel.add(encryptCipherPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 470, 160));
 
-        plainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
-        plainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        encryptPlainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
+        encryptPlainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        plainArea.setColumns(20);
-        plainArea.setLineWrap(true);
-        plainArea.setRows(5);
-        plainArea.setWrapStyleWord(true);
-        plainArea.setName(""); // NOI18N
-        plainScrollPane.setViewportView(plainArea);
+        encryptPlainArea.setColumns(20);
+        encryptPlainArea.setLineWrap(true);
+        encryptPlainArea.setRows(5);
+        encryptPlainArea.setWrapStyleWord(true);
+        encryptPlainArea.setName(""); // NOI18N
+        encryptPlainScrollPane.setViewportView(encryptPlainArea);
 
-        plainPanel.add(plainScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+        encryptPlainPanel.add(encryptPlainScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
 
-        jPanel1.add(plainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 470, 160));
+        encryptPanel.add(encryptPlainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 470, 160));
 
-        jButton1.setText("Encrypt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        encryptEncryptButton.setText("Encrypt");
+        encryptEncryptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                encryptEncryptButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        encryptPanel.add(encryptEncryptButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
-        jButton2.setText("Clear");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        encryptClearButton.setText("Clear");
+        encryptClearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                encryptClearButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
+        encryptPanel.add(encryptClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
-        jTabbedPane2.addTab("Encryption", jPanel1);
+        cipherTabbedPane.addTab("Encryption", encryptPanel);
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        decryptPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cipherPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
-        cipherPanel1.setPreferredSize(new java.awt.Dimension(470, 155));
-        cipherPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        decryptCipherPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
+        decryptCipherPanel.setPreferredSize(new java.awt.Dimension(470, 155));
+        decryptCipherPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cipherArea1.setColumns(20);
-        cipherArea1.setLineWrap(true);
-        cipherArea1.setRows(5);
-        cipherArea1.setWrapStyleWord(true);
-        cipherArea1.setMinimumSize(new java.awt.Dimension(100, 15));
-        cipherArea1.setName(""); // NOI18N
-        cipherScrollPane1.setViewportView(cipherArea1);
+        decryptCipherArea.setColumns(20);
+        decryptCipherArea.setLineWrap(true);
+        decryptCipherArea.setRows(5);
+        decryptCipherArea.setWrapStyleWord(true);
+        decryptCipherArea.setMinimumSize(new java.awt.Dimension(100, 15));
+        decryptCipherArea.setName(""); // NOI18N
+        decryptCipherScrollPane.setViewportView(decryptCipherArea);
 
-        cipherPanel1.add(cipherScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+        decryptCipherPanel.add(decryptCipherScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
 
-        jPanel2.add(cipherPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, 160));
+        decryptPanel.add(decryptCipherPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, 160));
 
-        plainPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
-        plainPanel3.setPreferredSize(new java.awt.Dimension(470, 163));
-        plainPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        decryptPlainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
+        decryptPlainPanel.setPreferredSize(new java.awt.Dimension(470, 163));
+        decryptPlainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        plainArea3.setEditable(false);
-        plainArea3.setColumns(20);
-        plainArea3.setLineWrap(true);
-        plainArea3.setRows(5);
-        plainArea3.setWrapStyleWord(true);
-        plainArea3.setName(""); // NOI18N
-        plainScrollPane3.setViewportView(plainArea3);
+        decryptPlainArea.setEditable(false);
+        decryptPlainArea.setColumns(20);
+        decryptPlainArea.setLineWrap(true);
+        decryptPlainArea.setRows(5);
+        decryptPlainArea.setWrapStyleWord(true);
+        decryptPlainArea.setName(""); // NOI18N
+        decryptPlainScrollPane.setViewportView(decryptPlainArea);
 
-        plainPanel3.add(plainScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+        decryptPlainPanel.add(decryptPlainScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
 
-        jPanel2.add(plainPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 160));
+        decryptPanel.add(decryptPlainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 160));
 
-        jButton3.setText("Clear");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        decryptClearButton.setText("Clear");
+        decryptClearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                decryptClearButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
+        decryptPanel.add(decryptClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
-        jButton4.setText("Decrypt");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        decryptDecryptButton.setText("Decrypt");
+        decryptDecryptButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                decryptDecryptButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        decryptPanel.add(decryptDecryptButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
-        jTabbedPane2.addTab("Decryption", jPanel2);
+        cipherTabbedPane.addTab("Decryption", decryptPanel);
 
-        javax.swing.GroupLayout caesarPanelLayout = new javax.swing.GroupLayout(caesarPanel);
-        caesarPanel.setLayout(caesarPanelLayout);
-        caesarPanelLayout.setHorizontalGroup(
-            caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(caesarPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout cipherPanelLayout = new javax.swing.GroupLayout(cipherPanel);
+        cipherPanel.setLayout(cipherPanelLayout);
+        cipherPanelLayout.setHorizontalGroup(
+            cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cipherPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caesarTitle)
-                    .addGroup(caesarPanelLayout.createSequentialGroup()
+                .addGroup(cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cipherTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cipherTitle)
+                    .addGroup(cipherPanelLayout.createSequentialGroup()
                         .addComponent(shiftLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        caesarPanelLayout.setVerticalGroup(
-            caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(caesarPanelLayout.createSequentialGroup()
+        cipherPanelLayout.setVerticalGroup(
+            cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cipherPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(caesarTitle)
+                .addComponent(cipherTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(shiftLabel)
                     .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cipherTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jMenu1.setMnemonic('F');
-        jMenu1.setText("File");
+        fileMenu.setMnemonic('F');
+        fileMenu.setText("File");
 
-        jMenuItem1.setMnemonic('x');
-        jMenuItem1.setText("Exit");
-        jMenuItem1.setToolTipText("Exit Application");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        exitMenuItem.setMnemonic('x');
+        exitMenuItem.setText("Exit");
+        exitMenuItem.setToolTipText("Exit Application");
+        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                exitMenuItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        fileMenu.add(exitMenuItem);
 
-        jMenuBar1.add(jMenu1);
+        cipherMenuBar.add(fileMenu);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(cipherMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,14 +258,14 @@ public class CipherFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(caesarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cipherPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(caesarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cipherPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -275,38 +277,38 @@ public class CipherFrame extends javax.swing.JFrame {
 //        cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
     }//GEN-LAST:event_spinUpdater
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void encryptEncryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptEncryptButtonActionPerformed
         // TODO add your handling code here:
         int shift = (Integer) shiftSpinner.getValue();
-        String plainText = plainArea.getText();
+        String plainText = encryptPlainArea.getText();
         caesarCipher.setShift(shift);
-        cipherArea.setText(caesarCipher.encipher(plainText));        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        encryptCipherArea.setText(caesarCipher.encipher(plainText));        
+    }//GEN-LAST:event_encryptEncryptButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void encryptClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptClearButtonActionPerformed
         // TODO add your handling code here:
-        plainArea.setText("");
-        cipherArea.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+        encryptPlainArea.setText("");
+        encryptCipherArea.setText("");
+    }//GEN-LAST:event_encryptClearButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void decryptDecryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptDecryptButtonActionPerformed
         // TODO add your handling code here:
         int shift = (Integer) shiftSpinner.getValue();
-        String cipherText = cipherArea1.getText();
+        String cipherText = decryptCipherArea.getText();
         caesarCipher.setShift(shift);
-        plainArea3.setText(caesarCipher.decipher(cipherText));        
-    }//GEN-LAST:event_jButton4ActionPerformed
+        decryptPlainArea.setText(caesarCipher.decipher(cipherText));        
+    }//GEN-LAST:event_decryptDecryptButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void decryptClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptClearButtonActionPerformed
         // TODO add your handling code here:
-        plainArea3.setText("");
-        cipherArea1.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
+        decryptPlainArea.setText("");
+        decryptCipherArea.setText("");
+    }//GEN-LAST:event_decryptClearButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,36 +344,36 @@ public class CipherFrame extends javax.swing.JFrame {
             public void run() {
 
                 CipherFrame cipherFrame = new CipherFrame();
-                cipherFrame.setTitle("Caesar Cipher");
+                cipherFrame.setTitle("A Simple Caesar Cipher");
                 cipherFrame.setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel caesarPanel;
-    private javax.swing.JLabel caesarTitle;
-    private javax.swing.JTextArea cipherArea;
-    private javax.swing.JTextArea cipherArea1;
+    private javax.swing.JMenuBar cipherMenuBar;
     private javax.swing.JPanel cipherPanel;
-    private javax.swing.JPanel cipherPanel1;
-    private javax.swing.JScrollPane cipherScrollPane;
-    private javax.swing.JScrollPane cipherScrollPane1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextArea plainArea;
-    private javax.swing.JTextArea plainArea3;
-    private javax.swing.JPanel plainPanel;
-    private javax.swing.JPanel plainPanel3;
-    private javax.swing.JScrollPane plainScrollPane;
-    private javax.swing.JScrollPane plainScrollPane3;
+    private javax.swing.JTabbedPane cipherTabbedPane;
+    private javax.swing.JLabel cipherTitle;
+    private javax.swing.JTextArea decryptCipherArea;
+    private javax.swing.JPanel decryptCipherPanel;
+    private javax.swing.JScrollPane decryptCipherScrollPane;
+    private javax.swing.JButton decryptClearButton;
+    private javax.swing.JButton decryptDecryptButton;
+    private javax.swing.JPanel decryptPanel;
+    private javax.swing.JTextArea decryptPlainArea;
+    private javax.swing.JPanel decryptPlainPanel;
+    private javax.swing.JScrollPane decryptPlainScrollPane;
+    private javax.swing.JTextArea encryptCipherArea;
+    private javax.swing.JPanel encryptCipherPanel;
+    private javax.swing.JScrollPane encryptCipherScrollPane;
+    private javax.swing.JButton encryptClearButton;
+    private javax.swing.JButton encryptEncryptButton;
+    private javax.swing.JPanel encryptPanel;
+    private javax.swing.JTextArea encryptPlainArea;
+    private javax.swing.JPanel encryptPlainPanel;
+    private javax.swing.JScrollPane encryptPlainScrollPane;
+    private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel shiftLabel;
     private javax.swing.JSpinner shiftSpinner;
     // End of variables declaration//GEN-END:variables
