@@ -1,0 +1,6 @@
+* Example of Encryption
+
+- shift size: 1
+- plaintext: This is a test!
+- ciphertext: Uijt!jt!b!uftu"
+

@@ -1,0 +1,5 @@
+* Example of Decryption
+
+- shift size: 10
+- ciphertext: zo|*}om|o~*wo}}kqoD*;<=*Lyl*=<;0
+- plaintext: Super secret message: 123 Bob 321&

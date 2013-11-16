@@ -1,50 +1,27 @@
 /*
  * CSCI 469
- * Project #1
+ * Project #2
  * Tan, Josh
- * 10/08/13
+ * 11/15/13
  */
 package caesarcipher;
 
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
 /**
  * The GUI frame used to demonstrate the cipher. Allows the user to specify the
- * shift size and plaintext, and provides the resulting ciphertext. The
- * ciphertext is shown immediately as the user makes changes the plaintext or
- * shift setting.
+ * shift size for the cipher. Also provides two tabs for performing encryption 
+ * and decryption on user-supplied text.
  *
  * @author Josh Tan
  */
 public class CipherFrame extends javax.swing.JFrame {
 
-    private Cipher caesarCipher; // cipher used for encryption
+    private final Cipher caesarCipher; // cipher used for encryption
 
     /**
      * Creates new form CipherFrame
      */
     public CipherFrame() {
         initComponents();
-
-        // whenever the user removes, inserts, and changes the plaintext,
-        // recompute and display the corresponding ciphertext
-        encryptPlainArea.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-//                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
-            }
-
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-//                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent arg0) {
-//                cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
-            }
-        });
 
         // initialize the cipher with the appropriate shift setting
         caesarCipher = new Cipher((Integer) shiftSpinner.getValue());
@@ -94,11 +71,6 @@ public class CipherFrame extends javax.swing.JFrame {
         shiftLabel.setText("Cipher Shift:");
 
         shiftSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 127, 1));
-        shiftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spinUpdater(evt);
-            }
-        });
 
         cipherTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cipherTitle.setText("A Simple Caesar Cipher");
@@ -272,40 +244,52 @@ public class CipherFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void spinUpdater(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinUpdater
-//        caesarCipher.setShift((Integer) shiftSpinner.getValue());
-//        cipherArea.setText(caesarCipher.encipher(plainArea.getText()));
-    }//GEN-LAST:event_spinUpdater
-
+    /**
+     * Close the application when the exit menu item is clicked.
+     * @param evt event triggering the application exit action
+     */
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    /**
+     * Encrypt the plaintext, in response to the user clicking the encrypt button.
+     * @param evt event triggering the encryption
+     */
     private void encryptEncryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptEncryptButtonActionPerformed
-        // TODO add your handling code here:
         int shift = (Integer) shiftSpinner.getValue();
         String plainText = encryptPlainArea.getText();
         caesarCipher.setShift(shift);
         encryptCipherArea.setText(caesarCipher.encipher(plainText));        
     }//GEN-LAST:event_encryptEncryptButtonActionPerformed
 
+    /**
+     * Clear the text areas in the encryption tab, in response to the user
+     * clicking the clear button.
+     * @param evt event triggering the clearing
+     */
     private void encryptClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encryptClearButtonActionPerformed
-        // TODO add your handling code here:
         encryptPlainArea.setText("");
         encryptCipherArea.setText("");
     }//GEN-LAST:event_encryptClearButtonActionPerformed
 
+    /**
+     * Decrypt the ciphertext, in response to the user clicking the decrypt button.
+     * @param evt event triggering the decryption
+     */
     private void decryptDecryptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptDecryptButtonActionPerformed
-        // TODO add your handling code here:
         int shift = (Integer) shiftSpinner.getValue();
         String cipherText = decryptCipherArea.getText();
         caesarCipher.setShift(shift);
         decryptPlainArea.setText(caesarCipher.decipher(cipherText));        
     }//GEN-LAST:event_decryptDecryptButtonActionPerformed
 
+    /**
+     * Clear the text areas in the decryption tab, in response to the user
+     * clicking the clear button.
+     * @param evt event triggering the clearing
+     */
     private void decryptClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decryptClearButtonActionPerformed
-        // TODO add your handling code here:
         decryptPlainArea.setText("");
         decryptCipherArea.setText("");
     }//GEN-LAST:event_decryptClearButtonActionPerformed

@@ -1,26 +1,24 @@
 /*
  * CSCI 469
- * Project #1
+ * Project #2
  * Tan, Josh
- * 10/08/13
+ * 11/15/13
  */
 package caesarcipher;
 
-// add option to make all lower case for more secrecy
-
 /**
- * A Caesar cipher with an adjustable shift size. The implementation of this
- * cipher is simple nature. Only letters are shifted and whitespace is retained
- * through the encryption process (though multiple consecutive whitespace
- * characters are merged into a single space in the ciphertext). In addition,
- * punctuation and numbers are not shifted.
+ * A Caesar cipher with an adjustable shift size. Encryption and decryption is
+ * supported. The range of shift sizes available correspond to the range
+ * of ASCII characters (minus one, to ensure different output is produced
+ * from the input). Encryption and decryption are symmetric: either function
+ * can be used to create ciphertext, and the other function will be able to
+ * create plaintext from that ciphertext.
  *
  * @author Josh Tan
  */
 public class Cipher {
 
-    public static final int ALPHABET_SIZE = 128;
-//    public static final int ALPHABET_OFFSET = 97; // 97 = ASCII 'a'
+    public static final int ALPHABET_SIZE = 128; // number of ASCII characters
     private int shift; // shift size for the cipher
 
     /**
@@ -58,25 +56,37 @@ public class Cipher {
     }
 
     /**
-     * Encrypt the given plaintext according to this Caesar cipher.
+     * Encrypt the given plaintext.
      *
      * @param plaintext the plaintext to be encrypted
-     * @return ciphertext the resulting ciphertext
+     * @return the resulting ciphertext
      */
     public String encipher(String plaintext) {
         
         return rotate(plaintext, shift);      
     }
-    
-    public String decipher(String plaintext) {
-        return rotate(plaintext, shift * -1);
+    /**
+     * Decrypt the given ciphertext.
+     * @param ciphertext the ciphertext to be decrypted
+     * @return the resulting plaintext
+     */
+    public String decipher(String ciphertext) {
+        return rotate(ciphertext, shift * -1);
     }
     
+    /**
+     * Rotate the specified string in the positive or negative
+     * direction, as specified. Used as a helper method for the 
+     * encipher and decipher methods.
+     * @param original the original string
+     * @param directedShift the direction to shift the text in
+     * @return the shifted text
+     */
     public String rotate(String original, int directedShift){
         
-
         StringBuilder rotationBuilder = new StringBuilder();
 
+        // for each character in the string
         for (int i = 0; i < original.length(); i++) {
 
             // obtain char as an int
@@ -84,22 +94,27 @@ public class Cipher {
 
             // if char is ASCII
             if (charAsInt >= 0 && charAsInt <= (ALPHABET_SIZE - 1)) {
-                // shift the character, wrapping around the alphabet, if necessary
                 
+                // shift the character, wrapping around the alphabet, if necessary
                 int actualShift;
                 if (directedShift < 0) {
-                    // neg - decrypt
+                    
+                    // character should be shifted in the negative direction:
+                    // map the character into its reflected positive value,
+                    // shift it forward by the shift size, and remap it back
+                    // into to its original (negative) space
                     int mappedOriginal = ALPHABET_SIZE - charAsInt;
                     int mappedRotated = (mappedOriginal + Math.abs(directedShift)) % ALPHABET_SIZE;
                     int rotated = ALPHABET_SIZE - mappedRotated;
                     actualShift = rotated;
                     
                 } else {
-                    // pos - encrypt
+                    // shift the character forward by the shift size, wrapping
+                    // if necessary
                     actualShift = (charAsInt + directedShift) % ALPHABET_SIZE;
                 }
                 
-                
+                // append the shifted character to the output
                 rotationBuilder.append((char) (actualShift));
             } else {
                 // char is not ASCII; do not shift

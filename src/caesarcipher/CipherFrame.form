@@ -118,9 +118,6 @@
               <SpinnerModel initial="1" maximum="127" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinUpdater"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="cipherTitle">
           <Properties>
