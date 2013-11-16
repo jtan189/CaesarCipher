@@ -99,12 +99,15 @@ public class CipherFrame extends javax.swing.JFrame {
         });
 
         caesarTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        caesarTitle.setText("A Slightly More Complex Caesar Cipher");
+        caesarTitle.setText("A Simple Caesar Cipher");
 
         jTabbedPane2.setBorder(new javax.swing.border.LineBorder(javax.swing.UIManager.getDefaults().getColor("TabbedPane.selected"), 1, true));
         jTabbedPane2.setPreferredSize(new java.awt.Dimension(501, 507));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         cipherPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
+        cipherPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cipherArea.setEditable(false);
         cipherArea.setColumns(20);
@@ -113,24 +116,12 @@ public class CipherFrame extends javax.swing.JFrame {
         cipherArea.setWrapStyleWord(true);
         cipherScrollPane.setViewportView(cipherArea);
 
-        javax.swing.GroupLayout cipherPanelLayout = new javax.swing.GroupLayout(cipherPanel);
-        cipherPanel.setLayout(cipherPanelLayout);
-        cipherPanelLayout.setHorizontalGroup(
-            cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cipherPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cipherScrollPane)
-                .addContainerGap())
-        );
-        cipherPanelLayout.setVerticalGroup(
-            cipherPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cipherPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cipherScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        cipherPanel.add(cipherScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+
+        jPanel1.add(cipherPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 470, 160));
 
         plainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
+        plainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         plainArea.setColumns(20);
         plainArea.setLineWrap(true);
@@ -139,22 +130,9 @@ public class CipherFrame extends javax.swing.JFrame {
         plainArea.setName(""); // NOI18N
         plainScrollPane.setViewportView(plainArea);
 
-        javax.swing.GroupLayout plainPanelLayout = new javax.swing.GroupLayout(plainPanel);
-        plainPanel.setLayout(plainPanelLayout);
-        plainPanelLayout.setHorizontalGroup(
-            plainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plainScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        plainPanelLayout.setVerticalGroup(
-            plainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(plainScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        plainPanel.add(plainScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+
+        jPanel1.add(plainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, 470, 160));
 
         jButton1.setText("Encrypt");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +140,7 @@ public class CipherFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         jButton2.setText("Clear");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -169,67 +148,31 @@ public class CipherFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(plainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cipherPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cipherPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(14, 14, 14))
-        );
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jTabbedPane2.addTab("Encryption", jPanel1);
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         cipherPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ciphertext"));
+        cipherPanel1.setPreferredSize(new java.awt.Dimension(470, 155));
+        cipherPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cipherArea1.setColumns(20);
         cipherArea1.setLineWrap(true);
         cipherArea1.setRows(5);
         cipherArea1.setWrapStyleWord(true);
+        cipherArea1.setMinimumSize(new java.awt.Dimension(100, 15));
+        cipherArea1.setName(""); // NOI18N
         cipherScrollPane1.setViewportView(cipherArea1);
 
-        javax.swing.GroupLayout cipherPanel1Layout = new javax.swing.GroupLayout(cipherPanel1);
-        cipherPanel1.setLayout(cipherPanel1Layout);
-        cipherPanel1Layout.setHorizontalGroup(
-            cipherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cipherPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        cipherPanel1Layout.setVerticalGroup(
-            cipherPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cipherPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cipherScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        cipherPanel1.add(cipherScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+
+        jPanel2.add(cipherPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, 160));
 
         plainPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Plaintext"));
-        plainPanel3.setPreferredSize(new java.awt.Dimension(472, 158));
+        plainPanel3.setPreferredSize(new java.awt.Dimension(470, 163));
+        plainPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         plainArea3.setEditable(false);
         plainArea3.setColumns(20);
@@ -239,22 +182,9 @@ public class CipherFrame extends javax.swing.JFrame {
         plainArea3.setName(""); // NOI18N
         plainScrollPane3.setViewportView(plainArea3);
 
-        javax.swing.GroupLayout plainPanel3Layout = new javax.swing.GroupLayout(plainPanel3);
-        plainPanel3.setLayout(plainPanel3Layout);
-        plainPanel3Layout.setHorizontalGroup(
-            plainPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plainPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plainScrollPane3)
-                .addContainerGap())
-        );
-        plainPanel3Layout.setVerticalGroup(
-            plainPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plainPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(plainScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        plainPanel3.add(plainScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 450, 130));
+
+        jPanel2.add(plainPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 160));
 
         jButton3.setText("Clear");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -262,6 +192,7 @@ public class CipherFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jButton4.setText("Decrypt");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -269,38 +200,7 @@ public class CipherFrame extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cipherPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(plainPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cipherPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(plainPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addGap(115, 115, 115))
-        );
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         jTabbedPane2.addTab("Decryption", jPanel2);
 
@@ -311,7 +211,7 @@ public class CipherFrame extends javax.swing.JFrame {
             .addGroup(caesarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(caesarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(caesarTitle)
                     .addGroup(caesarPanelLayout.createSequentialGroup()
                         .addComponent(shiftLabel)
@@ -329,13 +229,16 @@ public class CipherFrame extends javax.swing.JFrame {
                     .addComponent(shiftLabel)
                     .addComponent(shiftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 436, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jMenu1.setMnemonic('F');
         jMenu1.setText("File");
 
+        jMenuItem1.setMnemonic('x');
         jMenuItem1.setText("Exit");
+        jMenuItem1.setToolTipText("Exit Application");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
