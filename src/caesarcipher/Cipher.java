@@ -7,7 +7,7 @@
 package caesarcipher;
 
 /**
- * A Caesar cipher with an adjustable shift size. Encryption and decryption is
+ * A Caesar cipher with an adjustable shift size. Encryption and decryption are
  * supported. The range of shift sizes available correspond to the range
  * of ASCII characters (minus one, to ensure different output is produced
  * from the input). Encryption and decryption are symmetric: either function
