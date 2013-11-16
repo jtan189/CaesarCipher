@@ -1,8 +1,9 @@
 CaesarCipher
 ============
 
-CSCI 469 Project 1 and Project 2 (Fall 13) - Caesar Cipher. Release v1.0
-corresponds to Project 1 and release v2.0 corresponds to Project 2.
+CSCI 469 Project 1 and Project 2 (Fall 13) - Caesar Cipher.
+
+Release v1.0 corresponds to Project 1 and release v2.0 corresponds to Project 2.
 
 How to Run
 ----------
